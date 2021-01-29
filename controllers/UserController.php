@@ -18,10 +18,10 @@
               $username=$_POST['username'];
               $password=$_POST['password' ];
          
-              if($u=\app\models\Usuario::findOne(['usuario'=>$username]))
+              if($u=\app\models\Usuario::findOne(['user'=>$username]))
                   if($u->password==md5($password)) {//o crypt, según esté en la BD
          
-                      return ['token'=>$u->token,'id'=>$u->id,'nombre'=>$u->nombre];
+                      return ['token'=>$u->token,'id'=>$u->id,'user'=>$u->user];
                   }
          
               return ['error'=>'Usuario incorrecto. '.$username];
