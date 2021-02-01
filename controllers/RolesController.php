@@ -3,9 +3,9 @@ namespace app\controllers;
 use yii\rest\ActiveController;
 use yii\filters\auth\HttpBearerAuth;
  
-class EntradaController extends ActiveController
+class RolesController extends ActiveController
 {
-    public $modelClass = 'app\models\Entrada';
+    public $modelClass = 'app\models\Rol';
 
     public function behaviors() {
         $behaviors = parent::behaviors();

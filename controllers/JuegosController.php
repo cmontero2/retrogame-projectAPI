@@ -3,9 +3,9 @@ namespace app\controllers;
 use yii\rest\ActiveController;
 use yii\filters\auth\HttpBearerAuth;
  
-class SeccionController extends ActiveController
+class JuegosController extends ActiveController
 {
-    public $modelClass = 'app\models\Seccion';
+    public $modelClass = 'app\models\Juego';
 
     public function behaviors() {
         $behaviors = parent::behaviors();
