@@ -29,7 +29,7 @@ use Yii;
  * @property Rol $rol
  * @property UsuarioJuego[] $usuarioJuegos
  */
-class Usuario extends \yii\db\ActiveRecord
+class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -156,7 +156,6 @@ class Usuario extends \yii\db\ActiveRecord
       public function getAuthKey() { }
      
       public function validateAuthKey($authKey) { }
-      public static function findIdentityByAccessToken($token, $type = null) {}  
      
       // Comprueba que el password que se le pasa es correcto
       public function validatePassword($password) {
@@ -167,4 +166,14 @@ class Usuario extends \yii\db\ActiveRecord
       public function generateToken(){
         return random_bytes(5);
       }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        $u = self::findOne(['token' => $token]);
+        //if(!$u || $u->estado=="B") return false;
+        return $u;
+    }
 }
