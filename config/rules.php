@@ -3,7 +3,7 @@
 return  [
     ['class' => 'yii\rest\UrlRule',
         'pluralize'=>false,
-        'controller' => ['entradas'], //el nombre que quieras
+        'controller' => ['entrada'], //el nombre que quieras
     ],
     ['class' => 'yii\rest\UrlRule',
     'controller' => ['user'],

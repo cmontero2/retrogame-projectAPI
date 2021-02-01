@@ -50,7 +50,7 @@ $config = [
         
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'enableStrictParsing' => false, //es true
+            'enableStrictParsing' => true, //es true
             'showScriptName' => false,
             'rules' => require(__DIR__ . '/rules.php')
         ]

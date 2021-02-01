@@ -12,7 +12,7 @@ use Yii;
  * @property int $nivel_foro_id
  * @property string $user
  * @property string|null $nombre
- * @property string $contraseña
+ * @property string $password
  * @property string $email
  * @property string|null $nacimiento
  * @property string $estado
@@ -45,11 +45,11 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['rol_id', 'nivel_foro_id', 'user', 'contraseña', 'email', 'estado', 'token'], 'required'],
+            [['rol_id', 'nivel_foro_id', 'user', 'password', 'email', 'estado', 'token'], 'required'],
             [['rol_id', 'nivel_foro_id', 'telefono'], 'integer'],
             [['nacimiento'], 'safe'],
             [['user', 'poblacion'], 'string', 'max' => 30],
-            [['nombre', 'contraseña', 'email', 'token'], 'string', 'max' => 60],
+            [['nombre', 'password', 'email', 'token'], 'string', 'max' => 60],
             [['estado'], 'string', 'max' => 1],
             [['CIF'], 'string', 'max' => 9],
             [['direccion'], 'string', 'max' => 90],
@@ -69,7 +69,7 @@ class Usuario extends \yii\db\ActiveRecord
             'nivel_foro_id' => 'Nivel Foro ID',
             'user' => 'User',
             'nombre' => 'Nombre',
-            'contraseña' => 'Contraseña',
+            'password' => 'password',
             'email' => 'Email',
             'nacimiento' => 'Nacimiento',
             'estado' => 'Estado',
@@ -161,5 +161,10 @@ class Usuario extends \yii\db\ActiveRecord
       // Comprueba que el password que se le pasa es correcto
       public function validatePassword($password) {
            return $this->password === md5($password); // Si se utiliza otra función de encriptación distinta a md5, habrá que cambiar esta línea
+      }
+
+      //genera un token para usuarios nuevos
+      public function generateToken(){
+        return random_bytes(5);
       }
 }
