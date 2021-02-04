@@ -91,4 +91,5 @@ class Entrada extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Usuario::className(), ['id' => 'usuario_id']);
     }
+    
 }
