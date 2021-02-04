@@ -6,7 +6,7 @@ use yii\filters\auth\HttpBearerAuth;
 class CategoriasController extends ActiveController
 {
     public $modelClass = 'app\models\Categoria';
-/*
+    /*
     public function behaviors() {
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
