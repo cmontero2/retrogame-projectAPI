@@ -33,8 +33,10 @@ class EntradasController extends ActiveController
         $seccion=$_GET['seccion']??"";
         if($seccion != ""){
             return new ActiveDataProvider([
-                'query' => Entrada::find()->where('seccion_id='.$seccion )->orderBy('id')
-            
+                'query' => Entrada::find()
+                ->where('seccion_id='.$seccion.' and estado = "A"')
+                ->limit(3)
+                ->orderBy('fecha')
             ]);
         } else {
             return new ActiveDataProvider([
