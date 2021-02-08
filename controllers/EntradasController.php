@@ -34,9 +34,12 @@ class EntradasController extends ActiveController
         if($seccion != ""){
             return new ActiveDataProvider([
                 'query' => Entrada::find()
-                ->where('seccion_id='.$seccion.' and estado = "A"')
-                ->limit(3)
-                ->orderBy('fecha')
+                    ->where(['seccion_id'=>$seccion,
+                    'estado' => "A"])
+                    ->orderBy('fecha'),
+                'pagination' => [
+                'pageSize' => 3,
+                    ],  
             ]);
         } else {
             return new ActiveDataProvider([
