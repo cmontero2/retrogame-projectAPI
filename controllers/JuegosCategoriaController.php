@@ -7,13 +7,13 @@ class JuegosCategoriaController extends ActiveController
 {
     public $modelClass = 'app\models\JuegoCategoria';
 
-    public function behaviors() {
+    /*public function behaviors() {
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
            'class' => HttpBearerAuth::className(),
            'except' => ['options', 'authenticate'],
         ];
         return $behaviors;
-    }
+    }*/
 }
 ?>

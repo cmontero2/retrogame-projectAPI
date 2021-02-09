@@ -7,13 +7,13 @@ class SeccionesController extends ActiveController
 {
     public $modelClass = 'app\models\Seccion';
 
-    public function behaviors() {
+    /*public function behaviors() {
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
            'class' => HttpBearerAuth::className(),
            'except' => ['options', 'authenticate'],
         ];
         return $behaviors;
-    }
+    }*/
 }
 ?>

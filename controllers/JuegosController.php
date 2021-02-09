@@ -7,6 +7,7 @@ class JuegosController extends ActiveController
 {
     public $modelClass = 'app\models\Juego';
 
+    /*
     public function behaviors() {
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
@@ -15,5 +16,6 @@ class JuegosController extends ActiveController
         ];
         return $behaviors;
     }
+    */
 }
 ?>
