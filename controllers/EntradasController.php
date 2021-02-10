@@ -10,6 +10,7 @@ class EntradasController extends ApiController
 {
     public $modelClass = 'app\models\Entrada';
 
+    public $authenable=false;
 
     public function actions() {
         $actions = parent::actions();
