@@ -6,19 +6,10 @@ use yii\data\ActiveDataProvider;
 use yii\filters\auth\HttpBearerAuth;
 use app\models\Entrada;
  
-class EntradasController extends ActiveController
+class EntradasController extends ApiController
 {
     public $modelClass = 'app\models\Entrada';
-/*
-    public function behaviors() {
-        $behaviors = parent::behaviors();
-        $behaviors['authenticator'] = [
-           'class' => HttpBearerAuth::className(),
-           'except' => ['options', 'authenticate'],
-        ];
-        return $behaviors;
-    }
-    */
+
 
     public function actions() {
         $actions = parent::actions();

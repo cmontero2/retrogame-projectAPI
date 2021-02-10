@@ -3,7 +3,7 @@ namespace app\controllers;
 use yii\rest\ActiveController;
 use yii\filters\auth\HttpBearerAuth;
  
-class UsuariosJuegoController extends ActiveController
+class UsuariosJuegoController extends ApiController
 {
     public $modelClass = 'app\models\UsuarioJuego';
 

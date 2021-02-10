@@ -2,9 +2,10 @@
     namespace app\controllers;
     use yii\rest\ActiveController;
      
-    class UsersController extends ActiveController
+    class UsersController extends ApiController
     {
         public $modelClass = 'app\models\Usuario';
+        public $authenable=false;
     
         public function actionAuthenticate(){
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
