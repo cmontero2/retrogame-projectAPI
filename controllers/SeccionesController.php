@@ -6,7 +6,7 @@ use yii\filters\auth\HttpBearerAuth;
 class SeccionesController extends ActiveController
 {
     public $modelClass = 'app\models\Seccion';
-
+/*
     public function behaviors() {
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
@@ -15,5 +15,6 @@ class SeccionesController extends ActiveController
         ];
         return $behaviors;
     }
+    */
 }
 ?>
