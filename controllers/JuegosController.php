@@ -7,6 +7,6 @@ class JuegosController extends ApiController
 {
     public $modelClass = 'app\models\Juego';
 
-    
+    public $authenable=false;
 }
 ?>
