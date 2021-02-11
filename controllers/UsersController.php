@@ -27,7 +27,7 @@
               if($u=\app\models\Usuario::findOne(['user'=>$username]))
                   if($u->password==md5($password)) {//o crypt, según esté en la BD
          
-                      return ['token'=>$u->token,'id'=>$u->id,'user'=>$u->user];
+                      return ['token'=>$u->token,'id'=>$u->id,'user'=>$u->user, 'rol_id'=>$u->rol_id];
                   }
          
               return ['error'=>'Usuario incorrecto. '.$username];
