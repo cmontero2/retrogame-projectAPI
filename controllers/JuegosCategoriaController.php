@@ -19,15 +19,14 @@ class JuegosCategoriaController extends ApiController
     }
 
     public function indexProvider() {
-        $juegoCategoria=$_GET['juegoCategoria']??"";
-        if($juegoCategoria != ""){
+        $categoriaId=$_GET['categoria']??"";
+        if($categoriaId != ""){
             return new ActiveDataProvider([
                 'query' => JuegoCategoria::find()
-                    ->where(['id'=>$juegoCategoria])
-                    ->orderBy('nombre'),
+                    ->where(['categoria_id'=>$categoriaId]),
                 'pagination' => [
-                'pageSize' => 3,
-                    ],  
+                    'pageSize' => 3,
+                ],
             ]);
         } else {
             return new ActiveDataProvider([
