@@ -21,18 +21,22 @@ class JuegosController extends ApiController
     public function indexProvider() {
         $juego=$_GET['juego']??"";
         if($juego != ""){
+            return Juego::findOne($juego);
+            
+            /*
             return new ActiveDataProvider([
-                'query' => Juego::find()
-                    ->where(['id'=>$juego])
-                    ->orderBy('nombre'),
-                'pagination' => [
-                'pageSize' => 3,
-                    ],  
-            ]);
+                'query' => Juego::findOne($juego)
+                    //->where(['id'=>$juego])
+            ]);*/
+            
+
         } else {
+            return Juego::find()->all();
+            /*
             return new ActiveDataProvider([
                 'query' => Juego::find()
-            ]);
+            ]);*/
+            
         }
     }
 }
