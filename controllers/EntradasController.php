@@ -23,6 +23,7 @@ class EntradasController extends ApiController
 
     public function indexProvider() {
         $seccion=$_GET['seccion']??"";
+        $id = $_GET['id']??"";
         if($seccion != ""){
             return new ActiveDataProvider([
                 'query' => Entrada::find()
@@ -32,6 +33,11 @@ class EntradasController extends ApiController
                 'pagination' => [
                 'pageSize' => 3,
                     ],  
+            ]);
+        } elseif($id != "" ){
+            return new ActiveDataProvider([
+                'query' => Entrada::find()
+                    ->where(['id'=>$id])  
             ]);
         } else {
             return new ActiveDataProvider([
