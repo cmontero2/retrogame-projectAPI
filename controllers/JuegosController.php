@@ -19,9 +19,13 @@ class JuegosController extends ApiController
     }
 
     public function indexProvider() {
+        $empresa=$_GET['empresa']??"";
         $juego=$_GET['juego']??"";
-        if($juego != ""){
-            return Juego::findOne($juego);
+        if($empresa != ""){
+            return new ActiveDataProvider([
+                'query' => Juego::find($empresa)
+                    ->where(['empresa_id' => $empresa])
+            ]);
             
             /*
             return new ActiveDataProvider([
@@ -30,7 +34,12 @@ class JuegosController extends ApiController
             ]);*/
             
 
+        } elseif($juego != "") {
+
+            return Juego::findOne($juego);
+
         } else {
+            
             return Juego::find()->all();
             /*
             return new ActiveDataProvider([
