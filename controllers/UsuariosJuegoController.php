@@ -14,6 +14,6 @@ class UsuariosJuegoController extends ApiController
            'except' => ['options', 'authenticate'],
         ];
         return $behaviors;
-    }
+    } 
 }
 ?>
