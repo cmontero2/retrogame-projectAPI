@@ -23,6 +23,7 @@ class EntradasController extends ApiController
 
     public function indexProvider() {
         $seccion=$_GET['seccion']??"";
+        $seccionId=$_GET['seccionId']??"";
         $id = $_GET['id']??"";
         if($seccion != ""){
             return new ActiveDataProvider([
@@ -38,6 +39,13 @@ class EntradasController extends ApiController
             return new ActiveDataProvider([
                 'query' => Entrada::find()
                     ->where(['id'=>$id])  
+            ]);
+        } elseif($seccionId != ""){
+            return new ActiveDataProvider([
+                'query' => Entrada::find()
+                    ->where(['seccion_id'=>$seccionId,
+                    'estado' => "A"])
+                    ->orderBy('fecha')
             ]);
         } else {
             return new ActiveDataProvider([
