@@ -13,8 +13,9 @@ class JuegosController extends ApiController
 
     public function actions() {
         $actions = parent::actions();
-        unset($actions['delete'], $actions['create'],$actions['update']);
+        unset($actions['delete']);
         $actions['index']['prepareDataProvider'] = [$this, 'indexProvider'];
+
         return $actions;
     }
 
