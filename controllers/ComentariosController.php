@@ -7,6 +7,5 @@ class ComentariosController extends ApiController
 {
     public $modelClass = 'app\models\Comentario';
 
-    
 }
 ?>
