@@ -13,7 +13,7 @@ class UsuariosJuegoController extends ApiController
     public function actions() {
         $actions = parent::actions();
         //Eliminamos acciones de crear y eliminar apuntes. Eliminamos update para personalizarla
-        unset($actions['delete'], $actions['create'],$actions['update']);
+        unset($actions['delete']);
         // Redefinimos el método que prepara los datos en el index
         $actions['index']['prepareDataProvider'] = [$this, 'indexProvider'];
         return $actions;
