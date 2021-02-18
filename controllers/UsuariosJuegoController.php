@@ -12,11 +12,10 @@ class UsuariosJuegoController extends ApiController
 
     public function indexProvider() {
         $usuario=$_GET['usuario']??"";
-        echo "hola ".$usuario;
         if($usuario != ""){
             return new ActiveDataProvider([
                 'query' => UsuarioJuego::find()
-                    ->where('usuario_id='.$usuario)
+                    ->where(['usuario_id'=> $usuario])
                     ->orderBy('fecha_id')  
             ]);
         } else {
