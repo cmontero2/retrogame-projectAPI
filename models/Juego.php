@@ -37,6 +37,7 @@ class Juego extends \yii\db\ActiveRecord
             [['nombre', 'descripcion', 'visitas', 'empresa_id'], 'required'],
             [['visitas', 'empresa_id'], 'integer'],
             [['nombre'], 'string', 'max' => 60],
+            [['iframe_url'], 'string', 'max' => 200],
             [['descripcion'], 'string', 'max' => 400],
             [['empresa_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['empresa_id' => 'id']],
         ];
@@ -53,6 +54,8 @@ class Juego extends \yii\db\ActiveRecord
             'descripcion' => 'Descripcion',
             'visitas' => 'Visitas',
             'empresa_id' => 'Empresa ID',
+            'estado' => 'Estado',
+            'iframe_url' => 'Iframe URL'
         ];
     }
 
