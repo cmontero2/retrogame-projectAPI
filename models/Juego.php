@@ -34,8 +34,9 @@ class Juego extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'descripcion', 'visitas', 'empresa_id'], 'required'],
+            [['nombre', 'descripcion', 'visitas', 'empresa_id', 'estado'], 'required'],
             [['visitas', 'empresa_id'], 'integer'],
+            [['nombre_archivo'], 'string', 'max' => 30],
             [['nombre'], 'string', 'max' => 60],
             [['iframe_url'], 'string', 'max' => 200],
             [['descripcion'], 'string', 'max' => 400],
@@ -54,6 +55,7 @@ class Juego extends \yii\db\ActiveRecord
             'descripcion' => 'Descripcion',
             'visitas' => 'Visitas',
             'empresa_id' => 'Empresa ID',
+            'nombre_archivo' => 'Archivo',
             'estado' => 'Estado',
             'iframe_url' => 'Iframe URL'
         ];
