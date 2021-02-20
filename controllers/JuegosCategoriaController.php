@@ -13,21 +13,20 @@ class JuegosCategoriaController extends ApiController
 
     public function actions() {
         $actions = parent::actions();
-        unset($actions['delete'], $actions['create'],$actions['update']);
+        unset($actions['delete'],$actions['update']);
         $actions['index']['prepareDataProvider'] = [$this, 'indexProvider'];
         return $actions;
     }
 
     public function indexProvider() {
-        $juegoCategoria=$_GET['juegoCategoria']??"";
-        if($juegoCategoria != ""){
+        $categoriaId=$_GET['categoria']??"";
+        if($categoriaId != ""){
             return new ActiveDataProvider([
                 'query' => JuegoCategoria::find()
-                    ->where(['id'=>$juegoCategoria])
-                    ->orderBy('nombre'),
+                    ->where(['categoria_id'=>$categoriaId]),
                 'pagination' => [
-                'pageSize' => 3,
-                    ],  
+                    'pageSize' => 3,
+                ],
             ]);
         } else {
             return new ActiveDataProvider([

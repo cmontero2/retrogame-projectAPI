@@ -9,6 +9,6 @@ class SeccionesController extends ApiController
     
     public $authenable=false;
     
-
+    
 }
 ?>

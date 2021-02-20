@@ -13,26 +13,58 @@ class JuegosController extends ApiController
 
     public function actions() {
         $actions = parent::actions();
-        unset($actions['delete'], $actions['create'],$actions['update']);
+        unset($actions['delete']);
         $actions['index']['prepareDataProvider'] = [$this, 'indexProvider'];
+
         return $actions;
     }
 
     public function indexProvider() {
+        $empresa=$_GET['empresa']??"";
         $juego=$_GET['juego']??"";
-        if($juego != ""){
+        $nombre=$_GET['nombre']??"";
+        $visitas=$_GET['visitas']??"";
+        if($empresa != ""){
+            return new ActiveDataProvider([
+                'query' => Juego::find($empresa)
+                    ->where(['empresa_id' => $empresa])
+                    ->andWhere(['estado' => 'A'])
+            ]);
+            
+            /*
+            return new ActiveDataProvider([
+                'query' => Juego::findOne($juego)
+                    //->where(['id'=>$juego])
+            ]);*/
+            
+
+        } elseif($juego != "") {
+
+            return Juego::findOne($juego);
+
+        } elseif($nombre != "") {
+
+            return new ActiveDataProvider([
+                'query' => Juego::find($nombre)
+                    ->where(['nombre' => $nombre])
+            ]);
+
+        } elseif($visitas != "") {
+
             return new ActiveDataProvider([
                 'query' => Juego::find()
-                    ->where(['id'=>$juego])
-                    ->orderBy('nombre'),
-                'pagination' => [
-                'pageSize' => 3,
-                    ],  
+                    ->where(['estado' => 'A'])
+                    ->orderBy(['visitas' => SORT_DESC])
             ]);
+
         } else {
+            
+            return Juego::find()->where(['estado' => 'A'])->all();
+            /*
             return new ActiveDataProvider([
                 'query' => Juego::find()
-            ]);
+            ]);*/
+            
         }
     }
 }

@@ -35,20 +35,6 @@
               return ['error'=>'Usuario incorrecto. '.$username];
             }
         }
-        
-        public function indexProvider() {
-            $id=$_GET['id']??"";
-            if($id != ""){
-                return new ActiveDataProvider([
-                    'query' => Usuario::find()
-                        ->where(['id'=>$id]),  
-                ]);
-            } else {
-                return new ActiveDataProvider([
-                    'query' => Usuario::find()
-                ]);
-            }
-        }
 
           
     }
