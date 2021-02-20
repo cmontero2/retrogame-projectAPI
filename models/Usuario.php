@@ -48,7 +48,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['rol_id', 'nivel_foro_id', 'user', 'password', 'email', 'estado', 'token'], 'required'],
             [['rol_id', 'nivel_foro_id', 'telefono'], 'integer'],
             [['nacimiento'], 'safe'],
-            [['user', 'poblacion'], 'string', 'max' => 30],
+            [['user', 'poblacion', 'foto'], 'string', 'max' => 30],
             [['nombre', 'password', 'email', 'token'], 'string', 'max' => 60],
             [['estado'], 'string', 'max' => 1],
             [['CIF'], 'string', 'max' => 9],
@@ -78,6 +78,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'direccion' => 'Direccion',
             'telefono' => 'Telefono',
             'token' => 'Token',
+            'foto' => 'Foto'
         ];
     }
 
