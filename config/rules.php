@@ -10,7 +10,17 @@ return  [
     'pluralize'=>false,
     'extraPatterns'=>['POST authenticate'=>'authenticate',
             'OPTIONS authenticate'=>'authenticate',
-            ]
+        ],
+    ],
+
+    [
+        'class' => 'yii\rest\UrlRule',
+        'controller' => ['contact'],
+        'pluralize'=>false,
+        'extraPatterns'=>[
+            'POST send'=>'send',
+            'OPTIONS send'=>'send',
+        ],
     ],
 ];
 
