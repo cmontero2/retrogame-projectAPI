@@ -67,5 +67,9 @@ class JuegosController extends ApiController
             
         }
     }
+
+    public function actionPrint() {
+        return ['token' => '1234593', 'nombre' => 'hola'];
+    }
 }
 ?>

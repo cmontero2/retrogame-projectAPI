@@ -10,8 +10,12 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
+
 class SiteController extends Controller
 {
+
+    //public $authenable=false;
+
     /**
      * {@inheritdoc}
      */
@@ -104,16 +108,53 @@ class SiteController extends Controller
      * @return Response|string
      */
     public function actionContact()
-    {
+    {   
+
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
+            
 
             return $this->refresh();
         }
         return $this->render('contact', [
             'model' => $model,
         ]);
+    }
+
+    public function actionSendEmail()
+    {
+
+
+        return ['token'=>'imbecil', 'nombre'=>'tontico'];
+
+
+        /*if(Yii::$app->request->isPost) {
+            
+            $email = Yii::$app->request->post('email');
+            $message = Yii::$app->request->post('message');
+
+            Yii::$app->mailer->compose()
+            ->setFrom($email)
+            ->setTo('retrogame.project.daw2@gmail.com')
+            ->setSubject('T E S T')
+            ->setTextBody($message)
+            ->send();
+        }*/
+
+
+
+        /*$to = $_POST['to'];
+        $from = $_POST['from'];
+        $subject = $_POST['subject'];
+        $textBody = $_POST['textBody'];
+
+        Yii::$app->mailer->compose()
+                        ->setTo('retrogame.project.daw2@gmail.com')
+                        ->setFrom('retrogame.project.daw2@gmail.com')
+                        ->setSubject('TEST')
+                        ->setTextBody('Texto de prueba joder')
+                        ->send();*/
     }
 
     /**
