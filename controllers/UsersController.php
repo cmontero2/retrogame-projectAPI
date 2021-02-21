@@ -11,6 +11,7 @@ class UsersController extends ApiController
         public $modelClass = 'app\models\Usuario';
         public $authenable=false;
     
+        //para autentificacion en el frontend devolviendo su token
         public function actionAuthenticate(){
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               // Si se envían los datos en formato raw dentro de la petición http, se recogen así:

@@ -7,7 +7,7 @@ use yii\filters\auth\CompositeAuth;
 use yii\filters\Cors;
 use yii\filters\auth\HttpBearerAuth;
 use yii\filters\auth\QueryParamAuth;
- 
+/** Este controlador permite la conexion sin el problema de cors*/ 
 class ApiController extends \yii\rest\ActiveController {
        public $enableCsrfValidation= false; 
        public $authenable=true;

@@ -3,8 +3,9 @@
 return  [
     ['class' => 'yii\rest\UrlRule',
         'pluralize'=>false,
-        'controller' => ['entradas', 'categorias', 'comentarios', 'juegos', 'juegos-categoria', 'nivel-foro', 'roles', 'secciones', 'usuarios-juego'], //el nombre que quieras
+        'controller' => ['entradas', 'categorias', 'comentarios', 'juegos', 'juegos-categoria', 'nivel-foro', 'roles', 'secciones', 'usuarios-juego'],
     ],
+    //permite hacer el login y responde devolviendo un token
     ['class' => 'yii\rest\UrlRule',
     'controller' => ['users'],
     'pluralize'=>false,
@@ -12,7 +13,7 @@ return  [
             'OPTIONS authenticate'=>'authenticate',
         ],
     ],
-
+    //accion para enviar correo
     [
         'class' => 'yii\rest\UrlRule',
         'controller' => ['contact'],

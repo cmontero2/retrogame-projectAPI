@@ -25,6 +25,7 @@ class EntradasController extends ApiController
         $seccion=$_GET['seccion']??"";
         $seccionId=$_GET['seccionId']??"";
         $id = $_GET['id']??"";
+        //se utiliza para sacar las noticias
         if($seccion != ""){
             return new ActiveDataProvider([
                 'query' => Entrada::find()
@@ -35,6 +36,7 @@ class EntradasController extends ApiController
                 'pageSize' => 3,
                     ],  
             ]);
+        //filtra entrada por id    
         } elseif($id != "" ){
             return new ActiveDataProvider([
                 'query' => Entrada::find()
@@ -47,6 +49,7 @@ class EntradasController extends ApiController
                     'estado' => "A"])
                     ->orderBy('fecha')
             ]);
+        //muestra todas las entradas
         } else {
             return new ActiveDataProvider([
                 'query' => Entrada::find()
