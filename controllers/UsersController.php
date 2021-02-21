@@ -3,8 +3,10 @@
     use yii\rest\ActiveController;
     use yii\data\ActiveDataProvider;
     use app\models\Usuario;
-     
-    class UsersController extends ApiController
+    use Yii;
+use yii\web\UploadedFile;
+
+class UsersController extends ApiController
     {
         public $modelClass = 'app\models\Usuario';
         public $authenable=false;
@@ -34,6 +36,16 @@
          
               return ['error'=>'Usuario incorrecto. '.$username];
             }
+        }
+
+        /* Intento de upload desde backend */
+        public function actionUpload() {
+        
+            $request = Yii::$app->request;
+            $files = $request->$_FILES;
+            copy($files, '../assets/img/'. $request->post('name'));
+            //return ['foto' => $request->post('name')];          
+           
         }
 
           

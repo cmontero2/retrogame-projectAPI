@@ -22,6 +22,16 @@ return  [
             'OPTIONS send'=>'send',
         ],
     ],
+
+    /* Intento de upload en backend */
+    [
+        'class' => 'yii\rest\UrlRule',
+        'controller' => ['users'],
+        'pluralize'=> false,
+        'extraPatterns'=>['POST upload'=>'upload',
+            'OPTIONS upload'=>'upload',
+        ],
+    ]
 ];
 
 ?>
