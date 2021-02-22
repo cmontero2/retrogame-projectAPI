@@ -50,7 +50,7 @@ class UsersController extends ApiController
                     
             $filename = $_FILES["foto"]["name"]; //Obtenemos el nombre original del archivo
             $source = $_FILES["foto"]["tmp_name"]; //Obtenemos un nombre temporal del archivo                    
-            $directorio = '../assets/img/'; //Declaramos un  variable con la ruta donde guardaremos los archivos
+            $directorio = '../web/img/'; //Declaramos un  variable con la ruta donde guardaremos los archivos
 
             
             $dir=opendir($directorio); //Abrimos el directorio de destino

@@ -69,4 +69,9 @@ class UsuarioJuego extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Usuario::className(), ['id' => 'usuario_id']);
     }
+    /*
+    public function fields(){
+        return ['id', 'fecha_id', 'juego'];
+    }
+    */
 }
